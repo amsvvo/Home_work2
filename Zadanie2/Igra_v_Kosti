@@ -1,0 +1,49 @@
+import random
+
+def kosti():
+
+    while True:
+        print("Делайте ставку")
+
+
+        n = input("Выбирите число от 2 до 12: ")
+
+        try:
+             n = int(n)
+        except ValueError as err:
+             print(f'вы ввели символ отличающийся от числа: {type(err)}')
+        except Exception as err:
+            print(f'Другая ошибка({type(err)}')
+        finally:
+            win = random.randint(2, 12)
+            if n == win:
+                print("Удачная ставка!")
+            else:
+                print("Неудача!")
+
+        repeat = input('Желаете повторить? (да/нет)')
+        if 'нет' == repeat.strip().lower():
+            print("Заходите еще")
+            break
+    return
+
+
+
+
+def main():
+    class NotImplementedException(Exception):
+      print("Добро пожаловать!")
+      enter = input("Вы хотите сыграть в игру (Да/Нет)?")
+      if 'да' == enter:
+          choose = input("Выберите во что будете играть: (1) кости, (2) Jumbo Slot ")
+          if '1' == choose:
+            kosti()
+          elif '2' == choose:
+            raise NotImplementedException("Извините, сейчас аппарат сломан")
+      elif 'нет' == enter:
+         print("Досвидания, ждем вас в следующий раз")
+
+main()
+
+        
+
